@@ -86,16 +86,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void Calculate(HashMap coefficients)
     {
-        int size = Integer.parseInt(locField.getText().toString());
-        double PM, TM, SS, P;
+        try {
+            int size = Integer.parseInt(locField.getText().toString());
+            double PM, TM, SS, P;
 
-        PM = (Double) coefficients.get("ai") * Math.pow(size, (Double) coefficients.get("bi"));
-        TM = (Double) coefficients.get("ci") * Math.pow(PM, (Double) coefficients.get("di"));
-        SS = PM / TM;
-        P = size / PM;
+            PM = (Double) coefficients.get("ai") * Math.pow(size, (Double) coefficients.get("bi"));
+            TM = (Double) coefficients.get("ci") * Math.pow(PM, (Double) coefficients.get("di"));
+            SS = PM / TM;
+            P = size / PM;
 
-        String message = "Трудомісткість: " + PM + "\nЧас розробки в місяцях: " + TM +
-                "\nСередня чисельність персоналу: " + SS + "\nПродуктивність: " + P;
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+            String message = "Трудомісткість: " + PM + "\nЧас розробки в місяцях: " + TM +
+                    "\nСередня чисельність персоналу: " + SS + "\nПродуктивність: " + P;
+            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        }catch (Exception ex)
+        {
+            Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG);
+        }
     }
 }
