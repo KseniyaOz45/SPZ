@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
         }catch (Exception ex)
         {
-            Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG);
+            Toast.makeText(getApplicationContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 }
